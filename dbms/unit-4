@@ -1,0 +1,209 @@
+[7:46 am, 02/04/2023] 👑 Mohammed Faisal 👑: Create table teacher(id number(10), name varchar(20), subject varchar2(10), classID number(10), salary number(30));
+Insert into teacher values(1,’bhanu’,’computer’,3,5000);
+Insert into teacher values(2,'rekha','science',1,5000);
+Insert into teacher values(3,'siri','social',NULL,4500);
+Insert into teacher values(4,'kittu','mathsr',2,5500);
+select * from teacher;
+[7:46 am, 02/04/2023] 👑 Mohammed Faisal 👑: A nested query is a query that has another query embedded within it. The embedded query is called a subquery.
+
+A subquery typically appears within the WHERE clause of a query. It can sometimes appear in the FROM clause or HAVING clause.
+[7:46 am, 02/04/2023] 👑 Mohammed Faisal 👑: Serializability is a concept in database management systems (DBMS) that ensures that the concurrent execution of multiple transactions does not lead to inconsistent or incorrect results. It is a property that guarantees the correctness of the concurrent execution of transactions by ensuring that the final state of the database is equivalent to some serial execution of the transactions.
+[7:46 am, 02/04/2023] 👑 Mohammed Faisal 👑: There are two common techniques for achieving serializability:
+
+Lock-based concurrency control: This technique uses locks to control access to data items. A lock is a mechanism that prevents other transactions from accessing the same data item while a transaction is using it.
+
+Timestamp-based concurrency control: This technique assigns a timestamp to each transaction and data item. Transactions are ordered based on their timestamps, and conflicts are resolved by aborting the transaction with the smaller timestamp.
+[7:46 am, 02/04/2023] 👑 Mohammed Faisal 👑: Timestamp-based locking protocols are a type of concurrency control mechanism used in database management systems (DBMS) to ensure serializability of concurrent transactions. It uses a timestamp mechanism to determine the order of transaction execution and to detect conflicts between transactions.
+
+The basic idea behind timestamp-based locking protocols is that each transaction is assigned a unique timestamp that reflects its start time. The timestamp value is used to determine the order in which transactions execute, and to determine which transaction should be rolled back in case of conflicts.
+
+There are two types of timestamp-based locking protocols:
+
+Thomas Write Rule (TWR) protocol: This protocol ensures that a transaction that reads data from the database only sees the most recent version of the data. It uses a read timestamp (RTS) and a write timestamp (WTS) to manage the locking of data items. When a transaction reads a data item, the RTS is set to the maximum of its start time and the WTS of the data item. If the RTS is less than the WTS of another transaction that has modified the data item, the current transaction is rolled back.
+
+Strict Two-Phase Locking (S2PL) protocol: This protocol ensures that transactions acquire locks on all the data items they need before proceeding with their execution. It uses a shared lock and an exclusive lock to manage the locking of data items. When a transaction wants to read a data item, it acquires a shared lock. When a transaction wants to modify a data item, it acquires an exclusive lock. A transaction can only acquire a lock if its timestamp is greater than the timestamp of the lock holder.
+[7:46 am, 02/04/2023] 👑 Mohammed Faisal 👑: Concurrency Control
+Concurrency Control is the working concept that is required for controlling and managing the concurrent execution of database operations and thus avoiding the inconsistencies in the database. Thus, for maintaining the concurrency of the database, we have the concurrency control protocols.
+
+Concurrency Control Protocols
+The concurrency control protocols ensure the atomicity, consistency, isolation, durability and serializability of the concurrent execution of the database transactions. Therefore, these protocols are categorized as:
+
+Lock Based Concurrency Control Protocol
+Time Stamp Concurrency Control Protocol
+Validation Based Concurrency Control Protocol
+[7:46 am, 02/04/2023] 👑 Mohammed Faisal 👑: Static Hashing and Extendible Hashing are two commonly used hashing techniques in database management systems to store and retrieve data efficiently.
+
+Static Hashing:
+Static hashing is a technique that uses a fixed-size hash table to store data. In static hashing, the hash function is applied to the key value of each record to determine its index in the hash table. The index of the record is computed by taking the remainder of the key value divided by the number of slots in the hash table.
+Static hashing has the advantage of being simple and efficient for small amounts of data. However, it can become less efficient as the number of records grows, because hash collisions become more frequent, which means that two or more records may have the same hash value and be stored in the same slot of the hash table.
+
+Extendible Hashing:
+Extendible hashing is a dynamic hashing technique that is designed to handle large amounts of data. In extendible hashing, the hash table is organized as a directory of fixed-size buckets, each of which contains a fixed number of records.
+The hash function is applied to the key value of each record to determine its index in the directory.
+[7:46 am, 02/04/2023] 👑 Mohammed Faisal 👑: Extendible hashing has the advantage of being able to handle large amounts of data efficiently, because it allows for dynamic expansion of the hash table as needed. It also reduces the likelihood of hash collisions, because each bucket contains a fixed number of records. However, extendible hashing is more complex than static hashing and requires more memory to store the directory.
+[7:46 am, 02/04/2023] 👑 Mohammed Faisal 👑: Index data structures are used in database management systems (DBMS) to facilitate fast retrieval of data based on certain search criteria. Indexing allows queries to be executed more efficiently by providing a way to locate data quickly without having to scan the entire database.
+
+There are several types of index data structures used in DBMS, including:
+
+B-tree Indexes:
+B-tree indexes are the most commonly used index data structure in DBMS. They are designed to handle large amounts of data and provide fast access to data based on a search key. B-trees are balanced trees where each node contains a range of keys and pointers to child nodes.
+
+Hash Indexes:
+Hash indexes are used for fast lookups of data based on a key value. Hash indexes use a hash function to map key values to index positions, which allows for very fast lookups. However, hash indexes are not effective for range queries, where a range of values is searched for.
+
+Bitmap Indexes:
+Bitmap indexes are used to index data based on boolean values. They are often used in data warehouses where queries are focused on aggregate values such as sum, count, or average. Bitmap indexes use a bitmap to represent the presence or absence of a value in a column or set of columns.
+
+R-tree Indexes:
+R-tree indexes are used for spatial data, such as maps, images, and other types of multimedia data. They are designed to handle complex queries that involve range queries and spatial relationships.
+
+Text Indexes:
+Text indexes are used for full-text search of documents and other textual data. Text indexes allow for fast searching of large amounts of text data based on search terms or phrases.
+
+The choice of index data structure depends on the nature of the data being indexed and the types of queries that will be executed against it. It is important to choose the appropriate index data structure to ensure efficient query performance.
+[7:46 am, 02/04/2023] 👑 Mohammed Faisal 👑: Linear Hashing:
+
+Organizes the hash table as a sequence of buckets.
+Can result in hash collisions.
+Dynamically expands the hash table as needed.
+Provides efficient insertion and deletion of records.
+May suffer from performance degradation as the number of records grows.
+Extendible Hashing:
+
+Organizes the hash table as a tree structure of buckets.
+Reduces the likelihood of hash collisions.
+Dynamically expands the hash table as needed.
+Provides efficient insertion and deletion of records.
+Can handle large amounts of data without degrading performance.
+[9:07 am, 02/04/2023] 👑 Mohammed Faisal 👑: .
+[9:07 am, 02/04/2023] 👑 Mohammed Faisal 👑: .
+[9:07 am, 02/04/2023] 👑 Mohammed Faisal 👑: .
+[9:07 am, 02/04/2023] 👑 Mohammed Faisal 👑: .
+[9:07 am, 02/04/2023] 👑 Mohammed Faisal 👑: .
+[9:08 am, 02/04/2023] 👑 Mohammed Faisal 👑: Explain transaction states and desirable properties in dbms
+In a database management system (DBMS), a transaction is a sequence of database operations that must be executed together as a single, indivisible unit of work. These operations could include inserting, updating, or deleting data in the database.
+
+Transaction states refer to the different stages that a transaction goes through during its lifetime. The following are the four transaction states in a DBMS:
+
+Active: The transaction is in progress, and the database is being accessed and modified.
+
+Partially Committed: The transaction has executed all its operations and is waiting for confirmation from the database that the changes can be committed. Once the changes are confirmed, the transaction enters the committed state.
+
+Committed: The transaction has been completed, and the changes have been made permanent in the database.
+
+Aborted: The transaction has been rolled back, and any changes that were made have been undone. This can happen if there was an error during the transaction or if it was explicitly aborted.
+
+Desirable properties of transactions in a DBMS include:
+[9:08 am, 02/04/2023] 👑 Mohammed Faisal 👑: ACID is an acronym that stands for Atomicity, Consistency, Isolation, and Durability. These four properties are critical to ensure data consistency and reliability in a database management system (DBMS).
+
+Atomicity: Atomicity ensures that a transaction is treated as a single, indivisible unit of work. Either all of the operations within the transaction are completed successfully or none of them are completed. If a transaction fails midway, any changes made to the database by the transaction should be rolled back so that the database remains in a consistent state.
+
+Consistency: Consistency ensures that the database remains in a valid state after a transaction is executed. The database must satisfy all integrity constraints, such as primary key constraints, foreign key constraints, and other business rules. If a transaction violates any of these constraints, it should be rolled back to maintain data consistency.
+
+Isolation: Isolation ensures that concurrent transactions do not interfere with each other. Each transaction should operate as if it is the only transaction executing on the database. This means that the system should prevent dirty reads, non-repeatable reads, and phantom reads.
+
+Durability: Durability ensures that once a transaction is committed, its effects are permanent and will survive any subsequent failures, such as power outages, system crashes, or other types of errors. The changes made by a committed transaction should be stored in the database and should be available even if the system fails.
+
+In summary, the ACID properties guarantee that a DBMS is reliable, consistent, and safe, and that all transactions executed in the system are isolated from each other.
+[9:59 am, 02/04/2023] 👑 Mohammed Faisal 👑: .
+[9:59 am, 02/04/2023] 👑 Mohammed Faisal 👑: .
+[9:59 am, 02/04/2023] 👑 Mohammed Faisal 👑: .
+[9:59 am, 02/04/2023] 👑 Mohammed Faisal 👑: In a database management system (DBMS), a deadlock occurs when two or more transactions are waiting for each other to release resources (such as database locks) that they need to complete their execution. This results in a state where neither transaction can proceed, and the system becomes stuck or "deadlocked".
+[10:01 am, 02/04/2023] 👑 Mohammed Faisal 👑: Example – let us understand the concept of Deadlock with an example : 
+Suppose, Transaction T1 holds a lock on some rows in the Students table and needs to update some rows in the Grades table. Simultaneously, Transaction T2 holds locks on those very rows (Which T1 needs to update) in the Grades table but needs to update the rows in the Student table held by Transaction T1. 
+
+Now, the main problem arises. Transaction T1 will wait for transaction T2 to give up the lock, and similarly, transaction T2 will wait for transaction T1 to give up the lock. As a consequence, All activity comes to a halt and remains at a standstill forever unless the DBMS detects the deadlock and aborts one of the transactions.
+[10:29 am, 02/04/2023] 👑 Mohammed Faisal 👑: To prevent deadlocks, there are two main techniques:
+
+Deadlock Prevention: This technique involves designing the system in such a way that deadlocks cannot occur. One way to do this is to ensure that transactions acquire all the necessary resources they need to complete before they start executing. For example, if Transaction A needs Resources X and Y, it should acquire both locks before it starts executing. This approach can prevent deadlocks from occurring but can lead to reduced system concurrency, as resources are held for longer periods.
+
+Deadlock Detection and Resolution: This technique involves detecting deadlocks when they occur and then resolving them. Deadlock detection involves periodically checking the system for circular dependencies between transactions. When a deadlock is detected, it can be resolved by aborting one or more of the transactions involved. The resources held by the aborted transaction can then be released, allowing the remaining transactions to continue. This approach allows for greater system concurrency but can lead to additional overhead due to the need for deadlock detection and resolution.
+[3:19 pm, 02/04/2023] 👑 Mohammed Faisal 👑: .
+[0:52 am, 03/04/2023] 👑 Mohammed Faisal 👑: .Explain advanced recovery techniques
+a)logical undo logging b) transaction rollback c) check points
+d)restart recovery e) fuzzy check point in dbms
+Advanced recovery techniques in a database management system (DBMS) are used to ensure that the system can recover from failures and maintain data consistency. The following are some of the advanced recovery techniques:
+
+a) Logical Undo Logging: In this technique, the DBMS keeps a log of the changes made to the database. If a transaction fails, the changes made by that transaction can be undone by applying the opposite operations in reverse order. For example, if a transaction added a record to a table, the logical undo log would contain an entry to delete that record.
+
+b) Transaction Rollback: If a transaction fails, the system can roll back the transaction to its previous state by undoing the changes made by the transaction. This technique ensures that the database remains consistent and that any changes made by the failed transaction are not visible to other transactions.
+
+c) Checkpoints: Checkpoints are a technique used to minimize recovery time after a system failure. The DBMS periodically writes the contents of its memory buffers to disk, creating a checkpoint. If a failure occurs, the DBMS can recover from the last checkpoint, which reduces the amount of work needed to restore the system to its previous state.
+
+d) Restart Recovery: In this technique, the DBMS goes through a recovery process after a system failure. The recovery process involves redoing any transactions that were committed but not yet written to disk and undoing any transactions that were active but not committed at the time of the failure.
+
+e) Fuzzy Checkpoint: A fuzzy checkpoint is a technique used to minimize the impact of checkpoints on system performance. Instead of writing all memory buffers to disk, the DBMS writes only the modified buffers to disk. This technique allows the system to continue processing transactions while the checkpoint is in progress, which reduces the impact on system performance.
+
+Overall, these advanced recovery techniques help ensure that a DBMS can recover from failures and maintain data consistency, which is essential for the reliability and availability of the system.
+[0:52 am, 03/04/2023] 👑 Mohammed Faisal 👑: How the lock manager implements lock and unlock request in dbms
+The lock manager in a database management system (DBMS) is responsible for managing locks on database resources to ensure data consistency and transaction isolation. The lock manager implements lock and unlock requests in the following way:
+
+Lock Request: When a transaction requests a lock on a database resource, the lock manager checks the lock table to determine if the resource is currently locked by another transaction. If the resource is not locked, the lock manager grants the lock to the requesting transaction and adds an entry to the lock table indicating that the transaction now holds a lock on the resource. If the resource is already locked, the lock manager places the requesting transaction in a queue and waits for the lock to be released.
+
+Unlock Request: When a transaction completes and no longer requires a lock on a resource, it sends an unlock request to the lock manager. The lock manager then removes the corresponding entry from the lock table, freeing the resource and allowing other transactions to access it.
+
+The lock manager can use different types of locks to control access to database resources. For example, it can use shared locks to allow multiple transactions to read the same resource simultaneously, while preventing any of them from modifying the resource. Alternatively, it can use exclusive locks to allow a single transaction to modify a resource while preventing any other transactions from accessing it.
+
+In addition to managing locks, the lock manager also handles deadlock detection and resolution. If the lock manager detects a circular dependency between transactions, indicating a potential deadlock, it can use techniques such as transaction aborts or lock timeouts to break the deadlock and allow the system to continue processing transactions.
+
+Overall, the lock manager plays a critical role in ensuring data consistency and transaction isolation in a DBMS by managing locks on database resources and handling deadlock situations.
+[2:17 am, 03/04/2023] 👑 Mohammed Faisal 👑: .
+[2:17 am, 03/04/2023] 👑 Mohammed Faisal 👑: ..
+[2:17 am, 03/04/2023] 👑 Mohammed Faisal 👑: .
+[2:17 am, 03/04/2023] 👑 Mohammed Faisal 👑: .
+[2:17 am, 03/04/2023] 👑 Mohammed Faisal 👑: Buffer management in DBMS involves the use of a buffer pool, which is a portion of memory used to store recently accessed data from the disk. The primary purpose of buffer management is to improve system performance by reducing the number of disk reads and writes required to access data.
+[2:19 am, 03/04/2023] 👑 Mohammed Faisal 👑: In a DBMS, data is stored in blocks or pages on the disk. When a query is executed, the required pages are read from the disk into the main memory and stored in a buffer pool. The buffer pool is a portion of the main memory that is reserved for holding database pages. When a query needs to access a page, the DBMS checks if the page is already in the buffer pool. If the page is not in the buffer pool, it is read from the disk into the buffer pool. If the buffer pool is full, the DBMS uses a replacement algorithm to determine which page to remove from the buffer pool to make room for the new page.
+
+Buffer management is important because it affects the performance of database operations. If the buffer pool is too small, the DBMS will have to spend more time reading pages from the disk, resulting in slower query response times. If the buffer pool is too large, it can result in wasted memory resources and slower system performance due to excessive paging.
+
+To optimize buffer management, DBMS use a variety of techniques, including:
+
+Buffer Replacement Algorithms: The most common buffer replacement algorithms include Least Recently Used (LRU), First In First Out (FIFO), and Clock algorithms. These algorithms determine which pages to remove from the buffer pool when it is full.
+
+Buffer Pool Partitioning: Buffer pool partitioning involves dividing the buffer pool into multiple partitions to better manage the buffer pool's resources. For example, frequently accessed tables or indexes can be placed in separate buffer pool partitions to improve query performance.
+[2:26 am, 03/04/2023] 👑 Mohammed Faisal 👑: pin - count and dirty. The number of times the page is requested in the frame - each time the pin - count variable is incremented for that frame (because that page is in this frame). For satisfying each request of the user ; the pin - counter variable is decremented each time for that frame. Thus, if a page is requested the pin - count is incremented ; if it fulfills the request the pin - count is decremented. In addition to this, if the page has been modified the Boolean variable; dirty is set as 'on'. Otherwise 'off '.
+[2:51 am, 03/04/2023] 👑 Mohammed Faisal 👑: .
+[2:51 am, 03/04/2023] 👑 Mohammed Faisal 👑: .
+[2:51 am, 03/04/2023] 👑 Mohammed Faisal 👑: ..
+[2:51 am, 03/04/2023] 👑 Mohammed Faisal 👑: Validation Based Protocol in DBMS
+[2:51 am, 03/04/2023] 👑 Mohammed Faisal 👑: Validation Based Protocol is also called Optimistic Concurrency Control Technique. This protocol is used in DBMS (Database Management System) for avoiding concurrency in transactions. It is called optimistic because of the assumption it makes, i.e. very less interference occurs, therefore, there is no need for checking while the transaction is executed. 
+
+In this technique, no checking is done while the transaction is been executed. Until the transaction end is reached updates in the transaction are not applied directly to the database. All updates are applied to local copies of data items kept for the transaction. At the end of transaction execution, while execution of the transaction, a validation phase checks whether any of transaction updates violate serializability. If there is no violation of serializability the transaction is committed and the database is updated; or else, the transaction is updated and then restarted. 
+
+Optimistic Concurrency Control is a three-phase protocol. The three phases for validation based protocol: 
+ 
+
+Read Phase: 
+Values of committed data items from the database can be read by a transaction. Updates are only applied to local data versions. 
+ 
+Validation Phase: 
+Checking is performed to make sure that there is no violation of serializability when the transaction updates are applied to the database. 
+ 
+Write Phase: 
+On the success of the validation phase, the transaction updates are applied to the database, otherwise, the updates are discarded and the transaction is slowed down.
+[2:51 am, 03/04/2023] 👑 Mohammed Faisal 👑: Then, we must know about the following three time-stamps that we assigned to transaction Ti, to check its validity:
+
+1. Start(Ti): It is the time when Ti started its execution. 
+
+2. Validation(Ti): It is the time when Ti just ﬁnished its read phase and begin its validation phase. 
+
+3. Finish(Ti): the time when Ti end it’s all writing operations in the database under write-phase.
+
+Two more terms that we need to know are:
+
+1. Write_set: of a transaction contains all the write operations that Ti performs.
+
+2. Read_set: of a transaction contains all the read operations that Ti performs
+[3:43 am, 03/04/2023] 👑 Mohammed Faisal 👑: .
+[3:43 am, 03/04/2023] 👑 Mohammed Faisal 👑: ..
+[3:43 am, 03/04/2023] 👑 Mohammed Faisal 👑: .
+[3:44 am, 03/04/2023] 👑 Mohammed Faisal 👑: .Explain ARIES to reduce the time taken for recovery in dbms
+ARIES (Algorithm for Recovery and Isolation Exploiting Semantics) is a database recovery algorithm designed to reduce the time taken for recovery in database management systems (DBMS). ARIES is a log-based recovery algorithm that uses a combination of write-ahead logging and fuzzy checkpointing to ensure durability and reduce recovery time.
+
+ARIES has three phases: analysis, redo, and undo.
+
+Analysis Phase: In the analysis phase, ARIES scans the transaction log to identify the last consistent state of the database. This is the state of the database at the time of the last checkpoint, which is the point in time when the database was in a consistent state.
+
+Redo Phase: In the redo phase, ARIES applies all committed transactions since the last checkpoint to bring the database up to the current state. This is done by reading the log forward from the last checkpoint, applying all committed transactions to the database, and updating the checkpoint.
+
+Undo Phase: In the undo phase, ARIES undoes all transactions that were active at the time of the system failure. This is done by reading the log backwards from the last checkpoint, undoing all transactions that were not committed, and updating the checkpoint.
